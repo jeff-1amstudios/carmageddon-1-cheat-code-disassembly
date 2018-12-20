@@ -1,3 +1,3 @@
 #pragma once
 
-void FatalError (int pStr_index, char *sub_str);
+void FatalError (int pStr_index, ...);

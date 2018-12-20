@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 int been_here = 0;
+int TEST_really_exit = 1;
 
 void PDFatalError(char *pThe_str) {
 	if (been_here) {
@@ -13,7 +14,9 @@ void PDFatalError(char *pThe_str) {
 	printf("FATAL ERROR: %s\n", pThe_str);
 	// wait for keypress
 	// DoSaveGame() -> exit
-	exit(1);
+    if (TEST_really_exit) {
+	   exit(1);
+    }
 }
 
 int PDFileUnlock (char *pThe_path) {

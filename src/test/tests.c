@@ -5,6 +5,9 @@
 #include "emu_test.h"
 #include "../utility.h"
 #include "../loading.h"
+#include "../errors.h"
+
+extern int TEST_really_exit;
 
 EMU_TEST(DecodeLine2)
 {
@@ -18,7 +21,6 @@ EMU_TEST(DecodeLine2)
     EMU_END_TEST();
 }
 
-
 EMU_TEST(EncodeLine2) 
 {
   char buf[50];
@@ -29,7 +31,15 @@ EMU_TEST(EncodeLine2)
   EMU_END_TEST();
 }
 
+EMU_TEST(FatalError)
+{
+  TEST_really_exit = 0;
+  FatalError(0x6b, "hello", "world");
+  EMU_END_TEST();
+}
+
 void Tests_Run() {
   EMU_RUN(DecodeLine2);
   EMU_RUN(EncodeLine2);
+  EMU_RUN(FatalError);
 }

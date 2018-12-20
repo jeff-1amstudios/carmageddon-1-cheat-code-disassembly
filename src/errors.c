@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 #include "pc/sys.h"
 #include "utility.h"
@@ -132,29 +133,35 @@ int gPixel_buffer_size;
 int gMouse_was_started;
 char *gPixels_copy;
 
-void FatalError (int pStr_index, char *sub_str) {
+void FatalError (int pStr_index, ...) {
 	char the_str[1024];
 	char temp_str[1024];
 	char *sub_pt;
+	char *sub_str;
 	int i;
+	va_list ap;
 	sub_pt = temp_str;
+
+	va_start(ap, pStr_index);
 
 	int read_timer = 0;
 	gError_code = 0x20000000 + read_timer;
 	strcpy(the_str, gError_messages[pStr_index-1]);
-	sub_pt = the_str;
+	sub_pt = temp_str;
 
 	for (i = 0; i < strlen(the_str); i++) {
 		if (the_str[i] == '%') {
+			sub_str = va_arg(ap, char*);
 			StripCR(sub_str);
-			strncpy(temp_str, the_str, i);
-			sub_pt = temp_str + i;
 			strcpy(sub_pt, sub_str);
 			sub_pt += strlen(sub_str);
-			strcpy(sub_pt, the_str + i + 1);
-			break;
+		} else {
+			*sub_pt = the_str[i];
+			sub_pt++;
 		}
 	}
+	*sub_pt = 0;
+	va_end(ap);
 	PDFatalError(temp_str);
 }
 
