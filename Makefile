@@ -6,7 +6,7 @@ src = $(wildcard src/*.c) \
 	  $(wildcard src/test/*.c)
 _OBJ = $(src:.c=.o)
 
-CFLAGS =-std=c99 -Wall
+CFLAGS=-std=c99
 ODIR=obj
 BIN=bin
 OBJ =  $(patsubst %,$(ODIR)/%,$(_OBJ))
@@ -14,7 +14,7 @@ LDFLAGS =
 
 .PHONY: all clean directories test
 
-all: directories carma1
+all: directories carma1 showflags
 
 carma1: $(OBJ)
 	@$(CC) -o bin/$@ $^ $(CFLAGS) $(LDFLAGS)
@@ -35,3 +35,6 @@ $(ODIR)/%.o: %.c
 
 clean:
 	@rm -rf $(ODIR) $(BIN)
+
+showflags:
+	@echo "CFLAGS=$(CFLAGS)"
