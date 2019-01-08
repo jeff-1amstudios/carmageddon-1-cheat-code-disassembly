@@ -1,10 +1,12 @@
 
 src = $(wildcard src/*.c) \
 	  $(wildcard src/pc/*.c) \
+	  $(wildcard src/log/*.c) \
+	  $(wildcard src/test/framework/*.c) \
 	  $(wildcard src/test/*.c)
 _OBJ = $(src:.c=.o)
 
-CFLAGS = 
+CFLAGS =-m32 -Wall
 ODIR=obj
 BIN=bin
 OBJ =  $(patsubst %,$(ODIR)/%,$(_OBJ))
@@ -15,7 +17,7 @@ LDFLAGS =
 all: directories carma1
 
 carma1: $(OBJ)
-	@$(CC) -o bin/$@ $^ $(LDFLAGS)
+	@$(CC) -o bin/$@ $^ $(CFLAGS) $(LDFLAGS)
 
 test: carma1
 	bin/carma1 -test
@@ -26,7 +28,7 @@ $(BIN):
 	@mkdir -p bin
 
 $(ODIR):
-	@mkdir -p $(ODIR)/src/pc $(ODIR)/src/test
+	@mkdir -p $(ODIR)/src/pc $(ODIR)/src/log $(ODIR)/src/test/framework
 
 $(ODIR)/%.o: %.c
 	@$(CC) -c -o $@ $< $(CFLAGS)

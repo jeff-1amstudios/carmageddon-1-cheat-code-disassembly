@@ -20,7 +20,7 @@ extern void Tests_Run();
 int main(int argc, char * argv[]) {
   if (argc > 1) {
     if (strcmp("-test", argv[1]) == 0) {
-      Tests_Run();
+      return UnityMain(argc, argv, Tests_Run); 
     }
   }
 }

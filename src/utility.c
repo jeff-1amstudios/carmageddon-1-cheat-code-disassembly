@@ -174,8 +174,6 @@ void EncodeLine2(char *pS)
     --len;
     pS[len] = 0;
   }
-  printf("len: %d\n", len);
-  //len++;
 
   seed = len % 16;
   
