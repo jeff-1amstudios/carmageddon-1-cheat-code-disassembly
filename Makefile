@@ -6,7 +6,7 @@ src = $(wildcard src/*.c) \
 	  $(wildcard src/test/*.c)
 _OBJ = $(src:.c=.o)
 
-CFLAGS =-Wall
+CFLAGS =-std=c99 -Wall -pedantic
 ODIR=obj
 BIN=bin
 OBJ =  $(patsubst %,$(ODIR)/%,$(_OBJ))

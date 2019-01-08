@@ -2,6 +2,7 @@
 #include "input.h"
 #include "log/zf_log.h"
 
+//cat tmp | awk '{printf "{ .code = 0x%s",$3; getline; printf ", .code2 = 0x%s",$3; getline; printf ", .action_proc = %s",$4; getline; printf ", .num = 0x%s },\n",$3; }'
 tCheat gKev_keys[44] = {
     { .code = 0xA11EE75D, .code2 = 0xF805EDDD, .action_proc = SetFlag, .num = 0x0A11EE75D },
     { .code = 0x564E78B9, .code2 = 0x99155115, .action_proc = SetFlag, .num = 0x564E78B9 },

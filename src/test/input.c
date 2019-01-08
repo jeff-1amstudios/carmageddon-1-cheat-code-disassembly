@@ -2,6 +2,7 @@
 #include "framework/unity.h"
 
 #include <string.h>
+#include <unistd.h>
 #include "../input.h"
 
 TEST_GROUP(input);
