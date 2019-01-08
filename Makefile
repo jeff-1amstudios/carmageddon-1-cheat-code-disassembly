@@ -9,8 +9,8 @@ _OBJ = $(src:.c=.o)
 CFLAGS=-std=c99
 ODIR=obj
 BIN=bin
-OBJ =  $(patsubst %,$(ODIR)/%,$(_OBJ))
-LDFLAGS =
+OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
+LDFLAGS=
 
 .PHONY: all clean directories test
 

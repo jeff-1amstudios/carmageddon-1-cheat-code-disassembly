@@ -4,6 +4,9 @@
 #include <math.h>
 #include <time.h>
 
+/* enable clock_gettime */
+#define _POSIX_C_SOURCE 200112L
+
 int been_here = 0;
 int TEST_really_exit = 1;
 
