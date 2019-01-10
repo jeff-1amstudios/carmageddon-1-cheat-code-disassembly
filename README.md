@@ -10,6 +10,6 @@ This is what it looked like from the Watcom debugger - the names of all the meth
 
 More details are in [_Carmageddon 1 symbols dumped_](http://1amstudios.com/2014/12/02/carma1-symbols-dumped/)
 
-In 2018, a couple of members of the Carmageddon community did the painstaking work of manually matching up the functions and data structures in the executable to the debugging symbols. 
+_CrayzKirk_ from the Carmageddon community did the painstaking work of manually matching up functions and data structures in the executable to the debugging symbols.
 
 And now we begin the next step - reversing the assembly code back into _as original as possible_ C code.
