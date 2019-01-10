@@ -9,6 +9,8 @@ typedef struct  {
     int num;
 } tCheat;
 
+extern int __controls_lastGetPowerup;
+
 void CheckKevKeys();
 void SetFlag (int i);
 void SetFlag2 (int i);

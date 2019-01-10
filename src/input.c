@@ -70,7 +70,7 @@ tU32 *KevKeyService()
     code += keys << 11;
     code = (code >> 17) + 16 * code;
     code2 = (code2 >> 29) + keys * keys + 8 * code2;
-    // JeffH added to discard > 32 bits
+    // JeffH added to mask to 32 bit values
     sum &= 0xffffffff;
     code &= 0xffffffff;
     code2 &= 0xffffffff;
@@ -80,9 +80,9 @@ tU32 *KevKeyService()
     
   }
   else if (PDGetTotalTime() > (last_time + 1000)) {
-    ZF_LOGD("final value: last_time=%lu, pdtime=%lu, keys=%lx, sum=%lx, code=%lx, code2=%lx", last_time, PDGetTotalTime(), keys, sum, code, code2);
     return_val[0] = ((code >> 11) + (sum << 21)) & 0xffffffff;
     return_val[1] = code2;
+    ZF_LOGD("final value: code=%lx, code2=%lx", return_val[0], return_val[1]);
     code = 0;
     code2 = 0;
     sum = 0;

@@ -22,7 +22,7 @@ void tearDown(void) { /*does nothing*/ }
 
 static void announceTestRun(unsigned int runNumber)
 {
-    UnityPrint("Unity test run ");
+    UnityPrint("Test run ");
     UnityPrintNumberUnsigned(runNumber+1);
     UnityPrint(" of ");
     UnityPrintNumberUnsigned(UnityFixture.RepeatCount);

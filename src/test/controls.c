@@ -37,6 +37,9 @@ TEST(controls, CheckKevKeys)
   gLast_key_down = 0;
 
   CheckKevKeys();
+
+  // spamfritters cheat code should enable powerup #8
+  TEST_ASSERT_EQUAL_INT(8, __controls_lastGetPowerup);
 }
 
 

@@ -21,7 +21,7 @@ void PDFatalError(char *pThe_str)
 	}
 	been_here = 1;
 
-	printf("FATAL ERROR: %s\n", pThe_str);
+	fprintf(stderr, "FATAL ERROR: %s\n", pThe_str);
 	// wait for keypress
 	// DoSaveGame() -> exit
     if (TEST_really_exit) {
