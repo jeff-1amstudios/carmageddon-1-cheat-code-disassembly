@@ -1,4 +1,6 @@
-# Carmageddon 1 disassembly [![Build Status](https://travis-ci.org/jeff-1amstudios/c1-disassembly.svg?branch=master)](https://travis-ci.org/jeff-1amstudios/c1-disassembly) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/carma-disassembly/)
+# Carmageddon 1 disassembly [![Build Status](https://travis-ci.org/jeff-1amstudios/c1-disassembly.svg?branch=master)](https://travis-ci.org/jeff-1amstudios/c1-disassembly)
+
+Join the [Discord channel](https://discord.gg/f5StsuP)!
 
 In 1997, [Carmageddon 1](https://en.wikipedia.org/wiki/Carmageddon), a fun destruction/racing open-world game was first released.
 
